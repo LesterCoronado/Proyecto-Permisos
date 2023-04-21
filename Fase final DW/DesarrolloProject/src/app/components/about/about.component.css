@@ -1,0 +1,22 @@
+/* ============================================ */
+
+.contenedor-titulo{
+    color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.titulo{
+    display: inline;
+    background: rgb(240,11,66,0.33);
+    border-radius: 3rem;
+    padding: 1rem;
+}
+
+p{
+margin-top: 3rem;
+text-align: left;
+color:black;
+font-family: 'Roboto', sans-serif;
+font-size: 20px;
+}

@@ -1,0 +1,186 @@
+<section>
+
+
+  <h1 class="text-center umg mt-5">Universidad Mariano Gálvez de Guatemala</h1>
+  <h3 class="text-center">Ingresa tu solicitud para faltar a clases</h3>
+
+  <div aria-live="polite" aria-atomic="true" class="position-relative" *ngIf="Cursos.length >0">
+    <!-- Position it: -->
+    <!-- - `.toast-container` for spacing between toasts -->
+    <!-- - `top-0` & `end-0` to position the toasts in the upper right corner -->
+    <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
+    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100">
+    <!-- Then put toasts within -->
+      <div
+        class="toast fade show text-bg-light border-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+
+      >
+        <div class="toast-header">
+
+
+          <strong class="me-auto text-primary">UMG</strong>
+          <small class="text-muted">just now</small>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="toast-body text-danger">
+          <li>Solo se permiten 3 faltas en el semetre según lo
+            establecido en las normas universitarias.</li>
+
+          <li>Usted es responsable de las solicitudes que emita.</li>
+
+          <li>La respuesta a tu solicitud te llegará
+          a tu correo en un lapso de 24 a 72 Horas.</li>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <form
+    class="needs-validation cartilla mt-5"
+    [formGroup]="createFormulario"
+    (ngSubmit)="addReporte()"
+  >
+    <div
+      class="card shadow cartilla"
+      style="width: fit-content; margin-left: auto; margin-right: auto"
+    >
+      <div class="container">
+        <br />
+
+        <div class="container row g-3">
+          <br /><br />
+          <div class="col-md-12">
+            <strong
+              ><label class="form-check-label" for="flexSwitchCheckDefault"
+                >Seleccione un curso:</label
+              ></strong
+            >
+            <div class="row animated fadeIn fast " *ngIf="Cursos.length == 0">
+              <div class="col-md-12">
+                  <div class="alert alert-danger" role="alert">
+                      Por favor, inicia sesión para poder seleccionar un curso
+                  </div>
+              </div>
+          </div>
+            <select
+              class="form-select form-select-lg mt-2"
+              aria-label="Default select example"
+              name="id_AsignacionCurso"
+              formControlName="id_AsignacionCurso"
+              placeholder="Ejemplo"
+            >
+              <option [value]="curso.Curso.id_Curso" *ngFor="let curso of Cursos; first as isFirst">{{curso.Curso.Nombre}}</option>
+              <!-- <option value="3">one</option> -->
+            </select>
+          </div>
+
+          <div class="col-md-12">
+            <strong
+              ><label class="form-check-label" for="flexSwitchCheckDefault"
+                >Razón del permiso:</label
+              >
+            </strong>
+            <select
+              class="form-select form-select-lg mt-2"
+              aria-label="Default select example"
+              name="id_Motivo"
+              formControlName="id_Motivo"
+              aria-label="Disabled select example"
+          >
+
+              <option [value]="motivo.id" *ngFor="let motivo of Motivos; first as isFirst">{{motivo.Motivo1}}</option >
+              <!-- <option value="2">two</option> -->
+
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <strong><label>Añade una descripción:</label></strong>
+            <textarea
+              placeholder="Describe tu razón del permiso."
+              class="form-control"
+              id="exampleFormControlTextarea1"
+              rows="2"
+              name="descripcion"
+              formControlName="descripcion"
+            ></textarea>
+          </div>
+
+          <div class="col-md-12">
+            <strong>
+              <label for="validationCustom01" class="form-label"
+                >Fecha del permiso:</label
+              ></strong>
+              <br>
+            <input class="form-control" type="date"  class="form-control" id="fecha" formControlName="fecha" required >
+            
+
+          </div>
+
+          <div class="col-md-12">
+            <strong>
+              <label for="validationCustom01" class="form-label"
+                >Subir imágen:</label
+              ></strong
+            >
+            <p>
+              De acuerdo con lo solicitado suba una imágen de su documento
+              firmado y sellado por: médico, jefe o prueba por lo cual solicita
+              su permiso.
+            </p>
+
+            <input
+              id="archivoInput"
+              class="form-control"
+              (change)="capturarFile($event)"
+              type="file"
+              formControlName="foto"
+
+            />
+
+            <div class="preview-img" *ngIf="previsualizacion">
+              <a
+                class="clear-image text-danger mt-3"
+                style="float: rigth"
+                type="button"
+                style="width: 60px"
+                (click)="clearImage()"
+                ><i class="bi bi-trash3-fill"></i
+              ></a>
+              <div class="previsualizacion">
+                <img class="img" [src]="previsualizacion" alt="" />
+              </div>
+            </div>
+
+            <div class="p-1">
+              <small>Solo se aceptan archivos de tipo .png</small>
+            </div>
+            <div class="wrapper-button" *ngIf="previsualizacion">
+              <!-- <button type="button" class="button" [disabled]="loading" (click)="subirArchivo()">
+              {{(loading) ? 'Cargando.....' : 'Subir Archivo'}}
+          </button> -->
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-primary btn-block enviar">
+              Enviar
+            </button>
+          </div>
+          <br /><br /><br />
+        </div>
+      </div>
+    </div>
+  </form>
+  <br /><br />
+</section>

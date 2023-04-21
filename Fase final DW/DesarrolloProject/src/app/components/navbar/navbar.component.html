@@ -1,0 +1,23 @@
+<div class="border-top p-4 border nav-bg">
+    <div class="navbar navbar-expand-lg container navbar-light">
+        <!-- d-lg-none = display:none despues de 992px -->
+        <a class="navbar-brand nombre-sitio  fs-2 fw-bold text-uppercase" href="index.html">
+            <img loading="lazy" class="img-fuid m-2" src="./assets/Logoprin.png" alt="logo principal">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navegacion">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="navegacion" class="collapse navbar-collapse ">
+            <nav class="navbar-nav container d-flex flex-lg-row justify-content-md-between text-center">
+                <a routerLink="/" class="text-white text-decoration-none p-2">Inicio</a>
+                <a [routerLink]="['/about']" routerLinkActive="router-link-active" class="text-white text-decoration-none p-2" href="#">Nosotros</a>
+                <a [routerLink]="['/formulario']" routerLinkActive="router-link-active" class="text-white text-decoration-none p-2" href="#">Permisos</a>
+                <!-- <a [routerLink]="['/loginAdmin']" routerLinkActive="router-link-active" class="text-white text-decoration-none p-2" >Administrar</a> -->
+                <a [routerLink]="['/login']" routerLinkActive="router-link-active" class="text-white text-decoration-none p-2" href="#">Login</a>
+              </nav>
+        </div>
+
+    </div>
+</div>

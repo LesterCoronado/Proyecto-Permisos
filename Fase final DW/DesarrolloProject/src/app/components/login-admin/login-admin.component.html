@@ -1,0 +1,14 @@
+<div class="login">
+
+  <form class="cartilla" method="post" [formGroup]="crearFormulario" (ngSubmit)="administrar()">
+    <div class="card">
+      <div class="contenedor">
+        <h1>Coordinación</h1>
+        <input type="number" name="u" placeholder="Cod. Formulario" required="required" formControlName="CodFormulario"/>
+        <input type="number" name="p" placeholder="Cod. Acceso" required="required" formControlName="CodAcceso"/>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Acceder</button>
+        <br>
+      </div>
+    </div>
+  </form>
+</div>

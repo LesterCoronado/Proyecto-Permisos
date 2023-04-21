@@ -1,0 +1,41 @@
+.card{
+  max-width: 550px;
+
+}
+
+img{
+  max-width:250px;
+}
+
+.logo{
+  text-align: center;
+
+}
+
+.enviar{
+
+  width:100%;
+}
+
+.trash{
+  width: 50px;
+}
+
+
+.previsualizacion{
+  text-align: center;
+
+  display:center;
+}
+
+.img{
+ max-width: 150px;
+}
+
+.cartilla{
+  border-radius: 12px;
+}
+
+mat-form-field {
+  margin-right: 12px;
+}

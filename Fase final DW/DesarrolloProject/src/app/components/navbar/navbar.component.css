@@ -1,0 +1,12 @@
+.nav-bg{
+    background-image: url(/assets/fondo.jfif);
+    /* para no repetir la imagen */
+    background-repeat: no-repeat;
+    /* que cubra todo el contenedor */
+    background-size: cover;
+    background-position: center center;
+  }
+  
+.router-link-active{
+ background-color: #00008B;
+}
