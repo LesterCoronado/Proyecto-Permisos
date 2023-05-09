@@ -1,0 +1,35 @@
+.paragraph-banner{
+    margin-top: 2rem;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: bold;
+    color:gray;
+}
+
+.title-banner,
+.paragraph-banner{
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .paragraph-banner,
+    .title-banner{
+       text-align: start;
+    }
+}
+
+/* ============================== */
+.advertisement {
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    padding: 2rem;
+}
+
+.col-4{
+    display: grid;
+    place-items: center;
+    font-style: oblique;
+}
+
+
+

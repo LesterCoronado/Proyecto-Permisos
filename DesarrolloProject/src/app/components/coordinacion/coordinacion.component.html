@@ -1,0 +1,74 @@
+<!-- seccion que administra Corrdinacion -->
+
+<head>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+  />
+</head>
+
+<section>
+  <div class="encabezado">
+    <h1 class="text-center umg mt-5">
+      Universidad Mariano Gálvez de Guatemala
+    </h1>
+  </div>
+
+  <div class="contenido">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>No. Permiso</th>
+          <th>Alumno</th>
+          <th>CARNET</th>
+          <th>Curso</th>
+          <th>Motivo</th>
+          <th>Detalle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ Formulario.id }}</td>
+          <td>
+            {{
+              Formulario.AsignacionCurso.Estudiante.Persona.Nombre +
+                " " +
+                Formulario.AsignacionCurso.Estudiante.Persona.Apellido
+            }}
+          </td>
+          <td>{{ Formulario.AsignacionCurso.Estudiante.Carne }}</td>
+          <td>{{ Formulario.AsignacionCurso.Curso.Nombre }}</td>
+          <td>{{ Formulario.Motivo.Motivo1 }}</td>
+          <td (click)="toogleTag()" class="more"><b>Ver Más</b></td>
+        </tr>
+
+        <tr>
+          <td colspan="6">
+            <button
+              class="btn btn-success"
+              style="margin: 5px"
+              (click)="AceptarPermiso()"
+            >
+              Aceptar <i class="bi bi-check-circle"></i>
+            </button>
+            <button
+              class="btn btn-danger"
+              style="margin: 5px"
+              (click)="RechazarPermiso()"
+            >
+              Denegar <i class="bi bi-x-circle"></i>
+            </button>
+          </td>
+        </tr>
+        <tr *ngIf="showMe">
+          <td colspan="6"><h5 class="text-center">Descripcion:</h5></td>
+        </tr>
+        <tr *ngIf="showMe">
+          <td colspan="6">{{ Formulario.descripcion }}</td>
+        </tr>
+        <tr *ngIf="showMe">
+          <td colspan="6"><img [src]="Formulario.foto" class="card-img" /></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

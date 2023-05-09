@@ -1,0 +1,51 @@
+<div class="pt-5 jumbotron bg-transparent text-center">
+  <div *ngIf="!user" class="card text-center">
+    <h6 class="bg-dark text-white fs-4 card-header">Inicio de Sesión</h6>
+    <div class="card-block">
+      <h4 class="my-3 card-title">No ha Iniciado Sesión aún</h4>
+      <p class="mt-3 fs-4 card-text">Iniciar Sesión con:</p>
+    </div>
+
+
+
+    <div class="p-2 card-block d-flex justify-content-center">
+
+      <asl-google-signin-button class="mx-5"></asl-google-signin-button>
+
+      <!-- <button class="btn btn-social-icon btn-facebook mx-1" (click)="signInWithFB()">
+        <span class="fab fa-facebook"></span>
+      </button>
+      <button class="btn btn-social-icon btn-amazon mx-1" (click)="signInWithAmazon()">
+        <span class="fab fa-amazon"></span>
+      </button>
+      <button class="btn btn-social-icon btn-amazon mx-1" (click)="signInWithVK()">
+        <span class="fab fa-vk"></span>
+      </button>
+      <button class="btn btn-social-icon btn-microsoft mx-1" (click)="signInWithMicrosoft()">
+        <span class="fab fa-microsoft"></span>
+      </button> -->
+    </div>
+
+
+  </div>
+  <div *ngIf="user" class="card text-center">
+    <h6 class="bg-dark text-white fw-bold fs-4 text-uppercase card-header">Iniciar Sesión</h6>
+    <div class="card-block"></div>
+    <div class="mt-5 imagen-perfil">
+      <img *ngIf="user.photoUrl" class=" card-img-top img-responsive photo" src="{{ user.photoUrl }}" />
+    </div>
+    <div class="card-block">
+      <h4 class="pt-1 fs-5  card-title">{{ user.name }}</h4>
+      <p class="fs-4 card-text">{{ user.email }}</p>
+      <p class="card-text">Logged in with {{ user.provider }}</p>
+    </div>
+    <div class="card-block p-3">
+      <button class="btn btn-danger" (click)="signOut()">Log Out</button>
+    </div>
+    <div class="card-block" *ngIf="user.provider === GoogleLoginProvider.PROVIDER_ID">
+      <button class="btn" (click)="refreshGoogleToken()">
+        Refresh google token
+      </button>
+    </div>
+  </div>
+</div>
